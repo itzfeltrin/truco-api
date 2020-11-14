@@ -1,3 +1,3 @@
 module.exports = {
-    uri: "mongodb+srv://mycluster.galkn.mongodb.net/truco"
+    uri: "mongodb+srv://admin:admin@mycluster.galkn.mongodb.net/truco?retryWrites=true&w=majority"
 }
