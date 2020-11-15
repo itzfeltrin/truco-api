@@ -3,31 +3,34 @@ const db = require("./database/config");
 const mongoose = require("mongoose");
 
 class App {
-    constructor() {
-        this.express = express();
+  constructor() {
+    this.express = express();
 
-        this.database();
-        this.middlewares();
-        this.routes();
+    this.database();
+    this.middlewares();
+    this.routes();
 
-        this.port = process.env.PORT || 3000;
+    this.port = process.env.PORT || 3000;
 
-        this.express.listen(this.port, () =>
-            console.log(`Sua API REST está funcionando na porta ${this.port}`)
-        );
-    }
+    this.express.listen(this.port, () =>
+      console.log(`Sua API REST está funcionando na porta ${this.port}`)
+    );
+  }
 
-    database() {
-        mongoose.connect(db.uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    }
+  database() {
+    mongoose.connect(db.uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+  }
 
-    middlewares() {
-        this.express.use(express.json());
-    }
+  middlewares() {
+    this.express.use(express.json());
+  }
 
-    routes() {
-        this.express.use(require("./routes"));
-    }
+  routes() {
+    this.express.use(require("./routes"));
+  }
 }
 
 module.exports = new App().express;
