@@ -16,7 +16,7 @@ class App {
     }
 
     database() {
-        mongoose.connect(db.uri, { useNewUrlParser: true, user: "admin", pass: "admin" });
+        mongoose.connect(db.uri, { useNewUrlParser: true, useUnifiedTopology: true });
     }
 
     middlewares() {
