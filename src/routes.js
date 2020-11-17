@@ -13,7 +13,7 @@ routes.get("/team", TeamController.index);
 routes.post("/team", TeamController.store);
 routes.delete("/team", TeamController.deleteAll);
 //detailed
-routes.get("/team/detail", TeamController.detail);
+routes.get("/team/:id", TeamController.detail);
 
 // game
 routes.get("/game", GameController.index);

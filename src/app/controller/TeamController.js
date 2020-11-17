@@ -15,7 +15,8 @@ class TeamController {
 
   // get detailed
   async detail(req, res) {
-    const data = await Team.find({ _id: req.body.teamID });
+    let id = req.params.id;
+    const data = await Team.find({ _id: id });
     return res.json(data);
   }
 
