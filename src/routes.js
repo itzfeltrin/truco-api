@@ -12,6 +12,8 @@ routes.get("/", (req, res) => {
 routes.get("/team", TeamController.index);
 routes.post("/team", TeamController.store);
 routes.delete("/team", TeamController.deleteAll);
+// ranking
+routes.get("/team/ranking", TeamController.ranking);
 //detailed
 routes.get("/team/:id", TeamController.detail);
 

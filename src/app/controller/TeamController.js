@@ -13,6 +13,23 @@ class TeamController {
     return res.json(data);
   }
 
+  // get ranking
+  async ranking(req, res) {
+    try {
+      let data = await Team.find({});
+      data = data.sort((a, b) => {
+        if (a.wins === b.wins) {
+          return a.played < b.played ? -1 : 1;
+        } else {
+          return a.wins > b.wins ? -1 : 1;
+        }
+      });
+      return res.json(data);
+    } catch (err) {
+      return res.json(err);
+    }
+  }
+
   // get detailed
   async detail(req, res) {
     let id = req.params.id;
