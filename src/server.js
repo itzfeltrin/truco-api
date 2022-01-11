@@ -1,6 +1,7 @@
 const express = require("express");
 const db = require("./database/config");
 const mongoose = require("mongoose");
+var cors = require("cors");
 
 class App {
   constructor() {
@@ -10,7 +11,7 @@ class App {
     this.middlewares();
     this.routes();
 
-    this.port = process.env.PORT || 3000;
+    this.port = process.env.PORT || 8080;
 
     this.express.listen(this.port, () =>
       console.log(`Sua API REST está funcionando na porta ${this.port}`)
@@ -25,6 +26,7 @@ class App {
   }
 
   middlewares() {
+    this.express.use(cors());
     this.express.use(express.json());
   }
 
